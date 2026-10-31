@@ -7,7 +7,7 @@ My idea is to create 2 separate kernels of an OS in a way that the kernels can d
 - But the problem here is if I create a "kernel A" to work perfectly fine when "kernel B"(main kernel) panics or crashed, what if "kernel A" is the one that crashed?, well I guess I need to build something that detects each other.
 - So the final idea is "kernel A" will still work even "Kernel B" crashed but "kernel A" can still crash so need some kind of communication between them.
 
-**from thorough research, though this idea looks simple on the paper, this idea is highly complex because:**
+**from thorough research, though this idea looks simple on the paper, but highly complex because:**
 - kernel A and kernel B are completely blind to each other's memory, kernel A doesnt know that a memory belonds to kernel B and might modify it or corrupt it. We need to enforce a strict barrier between their memory.
 - - race conditions, because its a concurrent multiprocessing kernel, its prone to a lot of race conditions that can raise severe security issues.
   - I need to program the `Advanced Programmable Interrupt Controller (APIC)` for the motherboards peace of mind.
